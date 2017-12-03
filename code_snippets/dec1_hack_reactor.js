@@ -299,4 +299,204 @@ function removeStringValuesLongerThan(obj, num) {
 
 removeStringValuesLongerThan(6, obj);
 
+// Given an object, “removeEvenValues” removes any properties whose values are even numbers.
+
+var obj = {
+  a: 2,
+  b: 3,
+  c: 4
+};
+
+function removeEvenValues(obj) {
+  for(var key in obj) {
+    if(obj[key] % 2 === 0) {
+      delete obj[key];
+    }
+  }
+  return obj;
+}
+
+removeEvenValues(obj);
+
+// Given an object, “countNumberOfKeys” returns how many properties the given object has.
+
+var obj = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+
+function countNumberOfKeys(obj) {
+  var count = 0;
+  for (var prop in obj) {
+    count++
+    }
+    return count;
+  }
+
+countNumberOfKeys(obj);
+
+// Given an object, “removeOddValues” removes any properties whose values are odd numbers.
+
+var obj = {
+  a: 2,
+  b: 3,
+  c: 4
+};
+
+function removeOddValues(obj) {
+  for(var prop in obj) {
+    if(obj[prop] % 2 === 1) {
+      delete obj[prop];
+   }
+  }
+  return obj;
+}
+
+removeOddValues(obj);
+
+// Given an object, “removeArrayValues” removes any properties whose values are arrays.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+
+var obj = {
+  a: [1, 3, 4],
+  b: 2,
+  c: ['hi', 'there']
+}
+
+function removeArrayValues(obj) {
+  for(var prop in obj) {
+    if(Array.isArray(obj[prop]) === true) {
+      delete obj[prop];
+    }
+  }
+  return obj;
+}
+
+
+removeArrayValues(obj);
+
+// Given an object, “removeNumberValues” removes any properties whose values are numbers.
+
+var obj = {
+  a: 2,
+  b: 'remaining',
+  c: 4
+};
+
+function removeNumberValues() {
+  for(var prop in obj) {
+    if(typeof obj[prop] === 'number') {
+      delete obj[prop];
+    }
+  }
+  return obj;
+}
+
+removeNumberValues(obj);
+
+// Given an object, “removeStringValues” removes any properties on the given object whose values are strings.
+
+var obj = {
+  name: 'Sam',
+  age: 20
+}
+
+function removeStringValues(obj) {
+  for(var prop in obj) {
+    if(typeof obj[prop] === 'string') {
+      delete obj[prop];
+    }
+  } 
+  return obj;
+}
+
+removeStringValues(obj);
+
+// Given a string, “convertDoubleSpaceToSingle” returns the passed in string, with all the double spaces converted to single spaces.
+
+function convertDoubleSpaceToSingle(str) {
+  var singleSpace = str.split('  ');
+  var newString = singleSpace.join(' ');
+  return newString;
+}
+
+convertDoubleSpaceToSingle('string  with  double  spaces');
+
+// Given three arrays, “joinThreeArrays” returns an array with the elements of “arr1” in order followed by the elements in “arr2” in order followed by the elements of “arr3” in order.
+
+function joinThreeArrays(arr1, arr2, arr3) {
+  return arr1.concat(arr2, arr3);
+}
+
+joinThreeArrays([1, 2], [3, 4], [5, 6]);
+
+// Given an array and an element, “addToFrontOfNew” returns a new array containing all the elements of the given array, with the given element added to the front.
+
+var input = [1, 2];
+
+function addToFrontOfNew(arr, element) {
+  var arr2 = [];
+  arr2.push(element);
+  for(var i = 0; i < arr.length; i++) {
+    arr2.push(arr[i]);
+  }
+  return arr2;
+}
+
+addToFrontOfNew(input, 3);
+
+// Given an array and an element, “addToBackNew” returns a clone of the given array, with the given element added to the end.
+
+var input = [1, 2];
+
+function addToBackOfNew(arr, element) {
+  var arr2 = [element];
+  return arr.concat(arr2);
+}
+
+addToBackOfNew(input, 3);
+
+// Given an array and an index, “getAllElementsButNth” returns an array with all the elements but the nth.
+
+function getAllElementsButNth(array, n) {
+  array.splice(n, 1);
+  return array;
+}
+
+getAllElementsButNth(['a', 'b', 'c'], 1);
+
+// Given a name and a password, “areValidCredentials”, returns true if the name is longer than 3 characters, AND, the password is at least 8 characters long. Otherwise it returns false.
+
+function areValidCredentials(name, password) {
+  if(name.length > 3 && password.length > 8) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+areValidCredentials('Ritu', 'mylongpassword')
+
+// Given a character and a string, “getIndexOf” returns the first position of the given character in the given string.
+
+// Notes:
+// * Strings are zero indexed, meaning the first character in a string is at position 0.
+// * When a string contains more than one occurrence of a character, it should return the index of its first occurrence.
+// * If the character does not exist in the string, it should return -1.
+// * Do not use the native indexOf function in your implementation.
+
+function getIndexOf(char, str) {
+  for(var i = 0; i < str.length; i++) {
+    if(str[i] === char) {
+      return i;
+    } 
+  }
+  return -1;
+}
+
+getIndexOf('a', 'I am a hacker');
+
+
+
 
