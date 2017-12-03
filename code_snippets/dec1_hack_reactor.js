@@ -168,3 +168,135 @@ function removeFromBack(arr) {
 } 
 removeFromBack([1, 2, 3, 4, 5]); // [1, 2, 3, 4]
 
+// Given 2 boolean expressions, “or” returns true or false, corresponding to the ‘||’ operator.
+// Notes:
+// * Do not use the || operator.
+// * Use ! and && operators instead.
+
+function or(expression1, expression2) {
+  // your code here
+  /* START SOLUTION */
+  if(expression1 !== expression2) {
+    return true;
+  } else if(expression1 === expression2 && expression1 === true) {
+    return true;
+  } else if(expression1 === expression2 && expression1 === false) {
+    return false;
+  }
+
+  /* END SOLUTION */
+}
+
+// Given two numbers, ‘isEitherEvenOrAreBoth7’ returns whether at least one of them is even, or, both of them are 7.
+
+function isEitherEvenOrAreBoth7(num1, num2) {
+  if(num1 % 2 === 0 || num2 % 2 === 0) {
+    return true;
+  } else if(num1 === 7 && num2 === 7) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+isEitherEvenOrAreBoth7(3, 7);
+
+// Given two numbers, ‘isEitherEvenAndLessThan9’ returns whether at least one of them is even, and, both of them are less than 9.
+
+function isEitherEvenAndLessThan9(num1, num2) {
+  if (((num1 % 2 === 0) || (num2 % 2 === 0)) && ((num1 < 9) && (num2 < 9))) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+isEitherEvenAndLessThan9(1, 8); //true
+
+// Given two objects, “extend” adds properties from the 2nd object to the 1st object.
+
+// Notes:
+// * Add any keys that are not in the 1st object.
+// * If the 1st object already has a given key, ignore it (do not overwrite the property value).
+// * Do not modify the 2nd object at all.
+
+var obj1 = {
+  a: 1,
+  b: 2
+};
+var obj2 = {
+  b: 4,
+  c: 3
+};
+
+function extend(obj1, obj2) {
+  for(var i in obj2) {
+    if(!(i in obj1)) {
+      obj1[i] = obj2[i];
+    }
+  }
+  return obj2;
+}
+
+extend(obj1, obj2);
+
+// Given a number and an object, “removeNumbersLargerThan” removes any properties whose values are numbers greater than the given number.
+
+ var obj = {
+      a: "hello",
+      b: 2,
+      c: "montana",
+      d: 4
+    };
+
+function removeNumbersLargerThan(num, obj) {
+  for(var i in obj) {
+    if(!isNaN(obj[i]) && obj[i] > num) {
+      delete obj[i];
+    }
+  }
+  return obj;
+}
+
+ removeNumbersLargerThan(1, obj);
+
+// Given a number and an object, “removeNumbersLessThan” removes any properties whose values are numbers less than the given number.
+  var obj = {
+      a: "hello",
+      b: 2,
+      c: "montana",
+      d: 4
+    };
+
+function removeNumbersLessThan(num, obj) {
+  for(var i in obj) {
+    if(obj[i] < num) {
+      delete obj[i];
+    }
+  }
+  return obj;
+}
+
+removeNumbersLessThan(3, obj);
+
+// Given an number and an object, “removeStringValuesLongerThan” removes any properties on the given object whose values are strings longer than the given number.
+
+var obj = {
+  name: 'Montana',
+  age: 20,
+  location: 'Texas'
+};
+
+function removeStringValuesLongerThan(obj, num) {
+  for(var i in obj) {
+    if(obj[i].length > num) {
+      delete obj[i];
+    }
+  }
+  return obj;
+}
+
+removeStringValuesLongerThan(6, obj);
+
+
