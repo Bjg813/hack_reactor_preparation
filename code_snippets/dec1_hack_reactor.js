@@ -713,6 +713,64 @@ function getLastElementOfProperty(obj, key) {
 
 getLastElementOfProperty(obj, 'key');
 
+// Given an array and a keeper element, “keep” returns an array containing the items that match the given keeper element.
+
+function keep(array, keeper) {
+  var newArray = [];
+  for(var i = 0; i < array.length; i++) {
+    if(array[i] === keeper) {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+}
+
+keep([1, 2, 3, 2, 1], 2) 
+
+// Given an object and a key, “getOddLengthWordsAtProperty” returns an array containing all the odd length word elements of the array located at the given key.
+
+var obj = {
+  key: ['It', 'has', 'some', 'words']
+};
+
+function getOddLengthWordsAtProperty(obj, key) {
+  var arr = [];
+  if(!Array.isArray(obj[key])) {
+    return [];
+  }
+  for(var element in obj[key]) {
+    if(obj[key][element].length % 2 !== 0) {
+      arr.push(obj[key][element]);
+    }
+  }
+  return arr;
+}
+
+getOddLengthWordsAtProperty(obj, 'key');
+
+// Given an array of numbers, “computeAverageOfNumbers” returns their average.
+
+var input = [1,2,3,4,5];
+
+function computeAverageOfNumbers(nums) {
+  var sum = 0;
+  var numCount = nums.length;
+  var average = 0;
+  
+  if(nums.length < 1) {
+    return 0;
+  }
+  
+  for(var i = 0; i < nums.length; i++) {
+    sum += nums[i];
+  }
+  
+  average = sum / numCount;
+  return average;
+}
+
+computeAverageOfNumbers(input);
+
 
 
 
