@@ -771,6 +771,142 @@ function computeAverageOfNumbers(nums) {
 
 computeAverageOfNumbers(input);
 
+// Given an object and a key, “getAverageOfElementsAtProperty” returns the average of all the elements in the array located at the given key.
+
+var obj = {
+  key: [1, 2, 3]
+};
+
+function getAverageOfElementsAtProperty(obj, key) {
+  var sum = 0;
+  var average = 0;
+  
+  if((obj[key] === undefined) || (obj[key].length < 1) || Array.isArray(obj[key])=== false) {
+    return 0;
+  }
+  for(var prop in obj[key]) {
+    sum += obj[key][prop];
+  }
+  average = sum / obj[key].length
+  return average;
+  
+}
+
+getAverageOfElementsAtProperty(obj, 'key');
+
+// Given an object and a key, “getEvenLengthWordsAtProperty” returns an array containing all the even length word elements of the array located at the given key.
+
+var obj = {
+  key: ['a', 'long', 'game']
+};
+
+function getEvenLengthWordsAtProperty(obj, key) {
+  var arr = [];
+  if(!Array.isArray(obj[key])) {
+    return [];
+  }
+  
+  for(var element in obj[key]) {
+    if(obj[key][element].length % 2 === 0) {
+      arr.push(obj[key][element]);
+    }
+  }
+  return arr;
+}
+
+getEvenLengthWordsAtProperty(obj, 'key');
+
+// Given an array of string, “filterOddLengthWords” returns an array containing only the elements of the given array whose lengths are odd numbers.
+
+function filterOddLengthWords(words) {
+ 
+ var result = words.filter(word => word.length % 2 !== 0);
+ return result;
+}
+
+filterOddLengthWords(['there', 'it', 'is', 'now']);
+
+// Given an object and a key, “getSquaredElementsAtProperty” returns an array containing all the squared elements of the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+var obj = {
+  key: [2, 1, 5]
+};
+
+function getSquaredElementsAtProperty(obj, key) {
+  if((obj[key]) === undefined || (Array.isArray(obj[key])) === false) {
+    return [];
+  }
+  const map1 = obj[key].map(x => x * x); 
+  return map1;
+}
+
+
+getSquaredElementsAtProperty(obj, 'key');
+
+// Given an object and a key, “getOddElementsAtProperty” returns an array containing all the odd elements of the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If it contains no odd elements, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+var obj = {
+  key: [1, 2, 3, 4, 5]
+};
+
+function getOddElementsAtProperty(obj, key) {
+  if(Array.isArray(obj[key])) {
+    return obj[key].filter(function(element) {
+      return (element % 2) !== 0;
+    })
+  }
+  return [];
+}
+
+
+getOddElementsAtProperty(obj, 'key');
+
+// Given an object and a key, “getEvenElementsAtProperty” returns an array containing all the even elements of the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If the array contains no even elements, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the given key, it should return an empty array.
+
+var obj = {
+  key: [1000, 11, 50, 17]
+};
+
+function getEvenElementsAtProperty(obj, key) {
+  if(Array.isArray(obj[key])) {
+    return obj[key].filter(function(element) {
+      return (element % 2) === 0;
+    })
+  }
+  return [];
+}
+
+getEvenElementsAtProperty(obj, 'key');
+
+// Given an array of strings, “filterEvenLengthWords” returns an array containing only the elements of the given array whose length is an even number.
+
+function filterEvenLengthWords(words) {
+  let value = words.filter(word => word.length % 2 === 0);
+  return value;
+}
+
+
+filterEvenLengthWords(['word', 'words', 'word', 'words']);
+
+
+
 
 
 
