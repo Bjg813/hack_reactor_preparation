@@ -497,7 +497,99 @@ function getIndexOf(char, str) {
 
 getIndexOf('a', 'I am a hacker');
 
-// Try
+// Given 3 words, “findMinLengthOfThreeWords” returns the length of the shortest word
+
+function findMinLengthOfThreeWords(word1, word2, word3) {
+  return Math.min(word1.length, word2.length, word3.length);
+}
+
+
+findMinLengthOfThreeWords('a', 'be', 'see');
+
+// Given 3 words, “findMaxLengthOfThreeWords” returns the length of the longest word.
+
+function findMaxLengthOfThreeWords(word1, word2, word3) {
+  return Math.max(word1.length, word2.length, word3.length);
+}
+
+findMaxLengthOfThreeWords('a', 'be', 'see');
+
+// Given an object and a key, “getElementsThatEqual10AtProperty” returns an array containing all the elements of the array located at the given key that are equal to ten.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If the array contains no elements that are equal to 10, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+var obj = {
+  key: [12, 3, 4, 5, 10]
+};
+
+function getElementsThatEqual10AtProperty(obj, key) {
+  var arr = [];
+  for(var prop in obj[key]) {
+    if(obj[key][prop] === 10) {
+      arr.push(obj[key][prop]);
+    }
+  }
+  return arr;
+}
+
+getElementsThatEqual10AtProperty(obj, 'key');
+
+
+// Given an array and an object, “select” returns a new object whose properties are those in the given object AND whose keys are present in the given array.
+
+// Notes:
+// * If keys are present in the given array, but are not in the given object, it should ignore them. 
+// * It does not modify the passed in object.
+
+var arr = ['a', 'c', 'e'];
+var obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4
+};
+
+function select(arr, obj) {
+  var newObj = {};
+  arr.forEach(function(val) {
+    if(obj.hasOwnProperty(val)) {
+      newObj[val] = obj[val];
+    }
+  });
+  return newObj;
+}
+
+select(arr, obj);
+
+// Given an object and a key, “getElementsLessThan100AtProperty” returns an array containing all the elements of the array located at the given key that are less than 100.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If the array contains no elements less than 100, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+var obj = {
+  key: [1000, 20, 50, 500]
+};
+
+function getElementsLessThan100AtProperty(obj, key) {
+  var arr = [];
+  for(var prop in obj[key]) {
+    if(obj[key][prop] < 100) {
+      arr.push(obj[key][prop]);
+    }
+  }
+  return arr;
+}
+
+getElementsLessThan100AtProperty(obj, 'key');
+
+
 
 
 
