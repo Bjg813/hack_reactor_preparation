@@ -589,6 +589,130 @@ function getElementsLessThan100AtProperty(obj, key) {
 
 getElementsLessThan100AtProperty(obj, 'key');
 
+// Given a string, “countAllCharacters” returns an object where each key is a character in the given string. The value of each key should be how many times each character appeared in the given string.
+
+// Notes:
+// * If given an empty string, countAllCharacters should return an empty object.
+
+ function countAllCharacters(str) {
+   str.split('');
+   var counter = {};
+   for(var i = 0; i < str.length; i++) {
+     var key = str[i];
+     if('undefined' !== typeof(counter[key])) {
+       counter[key]++
+     } else {
+       counter[key] = 1;
+     } 
+     if(counter[key] === 0) {
+       return {};
+     }
+   }
+   return counter;
+ }
+ 
+ countAllCharacters('banana');
+
+ // Given an object and a key, “getElementsGreaterThan10AtProperty” returns an array containing the elements within the array, located at the given key, that are greater than 10.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If the array contains no elements greater than 10, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+function getElementsGreaterThan10AtProperty(obj, key) {
+  var arr = [];
+  for(var prop in obj[key]) {
+    if(obj[key][prop] > 10) {
+      arr.push(obj[key][prop])
+    }
+  }
+  return arr;
+}
+
+var obj = {
+  key: [1, 20, 30]
+};
+
+getElementsGreaterThan10AtProperty(obj, 'key');
+
+// Write a function called “removeElement”.
+// Given an array of elements, and a “discarder” parameter, “removeElement” returns an array containing the items in the given array that do not match the “discarder” parameter.
+
+// Notes:
+// * If all the elements match, it should return an empty array.
+// * If an empty array is passed in, it should return an empty array.
+
+ function removeElement(array, discarder) {
+   var newArray = [];
+   for(var i = 0; i < array.length; i++) {
+     if(array[i] !== discarder) {
+       newArray.push(array[i]);
+     }
+   }
+   return newArray;
+ }
+ 
+ removeElement([1, 2, 3, 2, 1], 2);
+
+ // Given an object and a key, “getFirstElementOfProperty” returns the first element of the array located at the given key.
+
+var obj = {
+  key: [1, 2, 4]
+};
+
+function getFirstElementOfProperty(obj, key) {
+  if(Array.isArray(obj[key]) === false) {
+    return undefined;
+  } else if(obj[key] === undefined) {
+    return undefined;
+  } else {
+    return obj[key][0];
+  }
+}
+
+getFirstElementOfProperty(obj, 'key');
+
+// Given an object and a key, “getNthElementOfProperty” returns the nth element of an array located at the given key.
+
+var obj = {
+  key: [1, 2, 4]
+};
+
+function getNthElementOfProperty(obj, key, n) {
+   var count = 0;
+  for(var prop in obj[key]) {
+    if(obj[key][prop] === n) {
+      count++;
+    }
+  }
+  if(count < 1) {
+    return undefined;
+  }
+  return obj[key][n];
+}
+
+getNthElementOfProperty(obj, 'key', 2);
+
+// Given an object and a key, “getLastElementOfProperty” returns the last element of an array located at the given key.
+
+var obj = {
+  key: [1, 2, 5]
+};
+
+function getLastElementOfProperty(obj, key) {
+  if(Array.isArray(obj[key]) === false) {
+    return undefined; 
+  } else if(obj[key] === undefined) {
+    return undefined;
+  } else {
+    return obj[key].pop();
+  }
+}
+
+getLastElementOfProperty(obj, 'key');
+
 
 
 
