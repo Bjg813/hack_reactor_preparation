@@ -497,6 +497,8 @@ function getIndexOf(char, str) {
 
 getIndexOf('a', 'I am a hacker');
 
+// Try
+
 
 
 
