@@ -1197,6 +1197,164 @@ function calculateBillTotal(preTaxAndTipAmount) {
 
 calculateBillTotal(20);
 
+// Given a string, “getStringLength” returns the length of the given string.
+
+// Notes:
+// * Do NOT use any native ‘length’ methods.
+// * You might consider using ‘substring’ or ‘slice’ as alternatives.
+
+function getStringLength(string) {
+  var count = 0;
+  while(string) {
+    string = string.slice(1);
+    count++;
+  }
+  return count;
+}
+
+getStringLength('hello');
+
+// Given an array of arrays, “joinArrayOfArrays” returns a single array containing the elements of the nested arrays.
+
+function joinArrayOfArrays(arr) {
+  var flattened = arr.reduce(
+  function(a, b) {
+    return a.concat(b);
+  },
+  []
+);
+return flattened;
+}
+
+joinArrayOfArrays([[1, 4], [true, false], ['x', 'y']]); 
+
+// [ 1, 4, true, false, 'x', 'y' ]
+
+// Given an object and a key, “getProductOfAllElementsAtProperty” returns the product of all the elements in the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return 0.
+// * If the property at the given key is not an array, it should return 0.
+// * If there is no property at the given key, it should return 0.
+
+var obj = {
+  key: [1, 2, 3, 4]
+};
+
+function getProductOfAllElementsAtProperty(obj, key) {
+ var product = 1;
+ 
+ if(obj[key] === false) {
+   return 0;
+ } else if(Array.isArray(obj[key]) === false) {
+   return 0;
+ } else if(obj[key] < 1) {
+   return 0;
+ }
+ 
+ for(var i = 0; i < obj[key].length; i++) {
+   product *= obj[key][i];  
+ }
+ return product;
+}
+
+getProductOfAllElementsAtProperty(obj, 'key');
+
+// Given a number, “sumDigits” returns the sum of all its digits.
+
+// If the number is negative, the first digit should count as negative.
+
+function sumDigits(num) {
+  var total = 0;
+  var newString = num.toString().split('');
+  for(var i = 0; i < newString.length; i++) {
+    if(newString[i] === '-') {
+      i++;
+      var converted = parseInt(newString[i]);
+      total -= converted;
+      continue;
+    }
+    var converted = parseInt(newString[i]);
+    total += converted;
+  }
+  return total;
+}
+
+sumDigits(-1148);
+// 14
+
+
+// Given an object and a key, “getSumOfAllElementsAtProperty” returns the sum of all the elements in the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return 0.
+// * If the property at the given key is not an array, it should return 0.
+// * If there is no property at the key, it should return 0.
+
+var obj = {
+  key: [4, 1, 8]
+};
+
+function getSumOfAllElementsAtProperty(obj, key) {
+  var array = obj[key];
+  var answer = 0;
+  
+  if(!Array.isArray(array) || array.length === 0 || !array) {
+    return answer;
+  } else {
+  answer = array.reduce(function(a, b) {
+    return a + b;
+  });
+  return answer;
+  }
+}
+
+getSumOfAllElementsAtProperty(obj, 'key'); 
+// 13
+
+// Given an array, “findShortestWordAmongMixedElements” returns the shortest string within the given array.
+
+// Notes:
+// * If there are ties, it should return the first element to appear in the given array.
+// * Expect the given array to have values other than strings.
+// * If the given array is empty, it should return an empty string.
+// * If the given array contains no strings, it should return an empty string.
+
+function findShortestWordAmongMixedElements(arr) {
+ // setup variables 
+ var stringCount = 0;
+ var stringArray = [];
+ var shortest = '';
+ 
+ for(var element = 0; element < arr.length; element++) {
+   if(typeof arr[element] === 'string') {
+     // record how many times, if any, a string appears
+     stringCount++;
+     stringArray.push(arr[element]);
+     console.log(arr[element]);
+   }
+ }
+ //Check for fail conditions, if met return an empty string:
+ //if arr is empty or arr has no strings
+ if(arr.length < 1 || stringCount < 1) {
+   return '';
+ }
+ 
+ // redeclare shortest as the first string in our newly populated array:
+ shortest = stringArray[0];
+ 
+ for(var string = 0; string < stringArray.length; string++) {
+   if(stringArray[string].length < shortest.length) {
+     shortest = stringArray[string];
+   }
+ }
+ return shortest;
+}
+
+findShortestWordAmongMixedElements([1, 'two', 2, 'three']);
+
+
+
 
 
 
