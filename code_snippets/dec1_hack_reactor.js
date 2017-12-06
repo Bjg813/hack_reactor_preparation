@@ -1353,6 +1353,183 @@ function findShortestWordAmongMixedElements(arr) {
 
 findShortestWordAmongMixedElements([1, 'two', 2, 'three']);
 
+// Given an array of mixed elements, “findSmallestNumberAmongMixedElements” returns the smallest number within the given array.
+
+// Notes:
+// * If the given array is empty, it should return 0.
+// * If the array contains no numbers, it should return 0.
+
+function findSmallestNumberAmongMixedElements(arr) {
+  //setup variables
+  var smallest = 0;
+  var numCount = 0;
+  var numArray = [];
+  
+  for(var element = 0; element < arr.length; element++) {
+    if(typeof arr[element] === 'number') {
+      // record how many times, if any, a number appears
+      numCount++;
+      numArray.push(arr[element]);
+      console.log(arr[element]);
+    }
+  }
+  //check for fail conditions:
+  //if given array is empty or array contains no numbers return 0
+  if(arr.length < 1 || numCount < 1) {
+    return 0;
+  }
+  
+  //redeclare smallest as the first string in newly populated array:
+  smallest = numArray[0];
+  
+  for(var number = 0; number < numArray.length; number++) {
+    if(numArray[number] < smallest) {
+      smallest = numArray[number];
+    }
+  }
+  return smallest;
+}
+
+findSmallestNumberAmongMixedElements([4, 'lincoln', 9, 'octopus']);
+
+// Given an array of mixed types, “getLongestWordOfMixedElements” returns the longest string in the given array.
+
+// Notes:
+// * If the array is empty, it should return an empty string (“”). 
+// * If the array contains no strings; it should return an empty string.
+
+function getLongestWordOfMixedElements(arr) {
+  //declare variables
+  var longest = 0;
+  var stringCount = '';
+  var stringArray = [];
+  
+  //record how many times, if any, a string appears
+  for(var element = 0; element < arr.length; element++) {
+    if(typeof arr[element] === 'string') {
+      stringCount++;
+      stringArray.push(arr[element]);
+      console.log(arr[element]);
+    }
+  }
+  //check for fail conditions, if met return an empty string:
+  //if arr is empty or arr has no strings
+  if(arr.length < 1 || stringCount < 1) {
+    return '';
+  }
+  
+  //redeclare longest as the first string in newly populated array
+  longest = stringArray[0];
+  
+  for(var string = 0; string < stringArray.length; string++) {
+    if(stringArray[string].length > longest.length) {
+      longest = stringArray[string];
+    }
+  }
+  return longest;
+}
+
+getLongestWordOfMixedElements([3, 'word', 5, 'up', 3, 1]);
+// word
+
+// Given any array, “getLargestNumberAmongMixedElements” returns the largest number in the given array.
+
+// Notes:
+// * The array might contain values of a type other than numbers.
+// * If the array is empty, it should return 0.
+// * If the array contains no numbers, it should return 0.
+
+function getLargestNumberAmongMixedElements(arr) {
+  //declare variables
+  var largest = 0;
+  var numCount = 0;
+  var numArray = [];
+  
+  //figure out where the numbers are and show them in arr
+  for(var element = 0; element < arr.length; element++) {
+    if(typeof arr[element] === 'number') {
+      numCount++;
+      numArray.push(arr[element]);
+      console.log(arr[element]);
+    }
+  }
+  //check for fail conditions, if met return 0
+  //if arr is empty or arr has no strings
+  if(arr.length < 1 || numCount < 1) {
+    return 0;
+  }
+  
+  //redeclare largest as the first string in the new array
+  largest = numArray[0];
+  
+  //find largest number and add to largest variable from array
+  for(var number = 0; number < numArray.length; number++) {
+    if(numArray[number] > largest) {
+      largest = numArray[number];
+    }
+  }
+  return largest;
+}
+
+getLargestNumberAmongMixedElements([3, 'word', 5, 'up', 3, 1]);
+// 5
+
+// Given a number, “computeSummationToN” returns the sum of sequential numbers leading up to the given number, beginning at 0.
+
+// Notes:
+// * If n = 4, it should calculate the sum of 1 + 2 + 3 + 4, and return 10.
+
+function computeSummationToN(n, count) {
+  //declare variables
+  var sum = 0;
+  var end = n;
+  for(var start = 0; start <= end; start++) {
+    sum += start;
+  }
+  return sum;
+}
+
+computeSummationToN(6, 2);
+// 21
+
+// Given a score, “convertScoreToGrade” returns a string representing the letter grade corresponding to the given score.
+
+// Notes:
+// * (100 - 90) –> ‘A’
+// * (89 - 80) –> ‘B’
+// * (79 - 70) –> ‘C’
+// * (69 - 60) –> ‘D’
+// * (59 - 0) –> ‘F’
+// * If the given score is greater than 100 or less than 0, it should return ‘INVALID SCORE’.
+
+
+function convertScoreToGrade(score) {
+  
+  if ( score > 100 || score < 0 ) {
+    return 'INVALID SCORE';
+  }
+  
+  if ( score >= 90 ) {
+    return 'A';
+  }else if ( score >= 80 ) {
+    return 'B';
+  }else if ( score >= 70 ) {
+    return 'C';
+  }else if ( score >= 60 ) {
+    return 'D';
+  }else{
+    return 'F';
+  }
+  
+}
+
+convertScoreToGrade(91);
+// A
+
+
+
+
+
 
 
 
