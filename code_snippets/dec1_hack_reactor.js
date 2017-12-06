@@ -852,7 +852,7 @@ getSquaredElementsAtProperty(obj, 'key');
 
 // Notes:
 // * If the array is empty, it should return an empty array.
-// * If it contains no odd elements, it should return an empty array.
+// * If it contains no odd elements, it should return an empty array 
 // * If the property at the given key is not an array, it should return an empty array.
 // * If there is no property at the key, it should return an empty array.
 
@@ -904,6 +904,304 @@ function filterEvenLengthWords(words) {
 
 
 filterEvenLengthWords(['word', 'words', 'word', 'words']);
+
+// Given an array, “getLengthOfLongestElement” returns the length of the longest string in the given array.
+
+function getLengthOfLongestElement(arr) {
+  var longest = arr[0];
+  if(arr.length < 1) {
+    return 0;
+  }
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].length > longest.length) {
+      longest = arr[i];
+    }
+  }
+  return longest.length;
+}
+
+getLengthOfLongestElement(['one', 'two', 'three']);
+
+// Given an object and a key, “getSmallestElementAtProperty” returns the smallest element in the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return undefined.
+// * If the property at the given key is not an array, it should return undefined. 
+// * If there is no property at the key, it should return undefined.
+
+var obj = {
+  key: [2, 1, 5]
+};
+
+function getSmallestElementAtProperty(obj, key) {
+  if(obj[key] === false) {
+    return undefined;
+  } else if(Array.isArray(obj[key]) === false) {
+    return undefined;
+  } else if(obj[key].length < 1) {
+    return undefined;
+  }
+  
+  var smallest = obj[key][0];
+  
+  for(var prop in obj[key]) {
+    if(obj[key][prop] < smallest) {
+      smallest = obj[key][prop];
+    }
+  }
+  return smallest;
+}
+
+getSmallestElementAtProperty(obj, 'key');
+
+// Given an object and a key, “getAllButLastElementOfProperty” returns an array containing all but the last element of the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If the property at the given key is not an array, it return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+var obj = {
+  key: [1, 2, 3]
+};
+
+function getAllButLastElementOfProperty(obj, key) {
+  var empty = [];
+  
+   if(obj[key] === undefined) { 
+    return empty;
+  } else if(obj[key].length < 1) {
+    return empty;
+  } if(Array.isArray(obj[key]) === false) {
+    return empty; 
+  }
+  
+  for(var i = 0; i < obj[key].length - 1; i++) {
+    empty.push(obj[key][i]);
+  }
+  return empty;
+}
+
+getAllButLastElementOfProperty(obj, 'key');
+
+// Given an object, a key, and a numerical index, “getElementOfArrayProperty” returns the value of the element at the given index of the array located within the given object at the given key.
+
+// Notes:
+// * If the array is empty, it should return undefined.
+// * If the given index is out of range of the array located at the given key, it should return undefined.
+// * If the property at the given key is not an array, it should return undefined.
+// * If there is no property at the key, it should return undefined.
+
+var obj = {
+ key: ['Jamil', 'Albrey']
+};
+
+function getElementOfArrayProperty(obj, key, index) {
+  if(obj[key] === undefined) {
+    return undefined;
+  } else if(Array.isArray(obj[key]) === false) {
+    return undefined;
+  }
+  return obj[key][index];
+}
+
+getElementOfArrayProperty(obj, 'key', 0); 
+
+// Write a function called “squareElements”.
+// Given an array of numbers, “squareElements” should return a new array where each element is the square of the element of the given array.
+
+function squareElements(arr) {
+  let newArray = arr.map(x => x * x);
+  return newArray;
+}
+
+squareElements([1, 2, 3]); 
+
+// Given an array of numbers, “filterOddElements” returns an array containing only the odd numbers of the given array.
+
+function filterOddElements(arr) {
+  let newArray = arr.filter(element => (element % 2) !== 0);
+  return newArray;
+}
+
+filterOddElements([1, 2, 3, 4, 5]); 
+
+// Write a function called “computeProductOfAllElements”.
+
+// Given an array of numbers, “computeProductOfAllElements” returns the products of all the elements in the given array.
+
+// Notes:
+// * If given array is empty, it should return 0.
+
+function computeProductOfAllElements(arr) {
+  var product = 1;
+  if(arr.length < 1) {
+    return 0;
+  }
+  for(var i = 0; i < arr.length; i++) {
+    product *= arr[i];
+  }
+  return product;
+}
+
+computeProductOfAllElements([2, 5, 6]);
+
+
+// Given an array of numbers, “filterEvenElements” returns an array containing only the even numbers of the given array.
+
+
+function filterEvenElements(arr) {
+  let newArray = arr.filter(element => (element % 2) === 0);
+  return newArray;
+}
+
+filterEvenElements([2, 3, 4, 5, 6]); 
+
+// Given an array, “getLengthOfShortestElement” returns the length of the shortest string in the given array.
+
+// Notes:
+// * It should return 0 if the array is empty.
+
+function getLengthOfShortestElement(arr) {
+  var shortest = arr[0];
+  if(arr.length < 1) {
+    return 0;
+  }
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i].length < shortest.length) {
+      shortest = arr[i];
+    }
+  }
+  return shortest.length;
+}
+
+getLengthOfShortestElement(['one', 'two', 'three']);
+
+// Write a function called “getLongestElement”.
+
+// Given an array, “getLongestElement” returns the longest string in the given array.
+
+// Notes:
+// * If there are ties, it returns the first element to appear.
+// * If the array is empty, it should return an empty string.
+
+function getLongestElement(arr) {
+  var longest = arr[0];
+  if(arr.length < 1) {
+    return 0;
+  }
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i].length > longest.length) {
+      longest = arr[i];
+    }
+  }
+  return longest;
+}
+
+ getLongestElement(['one', 'two', 'three']);
+
+ // Given an array of numbers, “findSmallestElement” returns the smallest number within the given array.
+
+// Notes:
+// * If the given array is empty, it should return 0.
+
+function findSmallestElement(arr) {
+  if(!Array.isArray(arr) || arr.length === 0) {
+    return 0;
+  }
+  
+  return arr.reduce(function(acc, ele) {
+    if(ele < acc) {
+      acc = ele;
+    }
+    return acc;
+  })
+}
+
+findSmallestElement([4, 1, 9, 10]);
+
+// Given an array, “findShortestElement” returns the shortest string within the given array.
+
+// Notes:
+// * If there are ties, it should return the first element to appear.
+// * If the given array is empty, it should return an empty string.
+
+function findShortestElement(arr) {
+  if(!Array.isArray(arr) || arr.length === 0) {
+    return [];
+  }
+  
+  return arr.reduce(function(acc, ele) {
+    if(ele.length < acc.length) {
+      acc = ele;
+    }
+    return acc;
+  })
+}
+
+findShortestElement(['a', 'two', 'three']);
+
+// Write a function called “getLargestElement”.
+
+// Given an array, “getLargestElement” returns the largest number in the given array.
+
+// Notes:
+// * It should return 0 if the array is empty.
+
+function getLargestElement(arr) {
+  if(!Array.isArray(arr) || arr.length === 0) {
+  return 0;
+}
+
+return arr.reduce(function(acc, ele) {
+  if(ele > acc) {
+    acc = ele;
+  }
+  return acc;
+ })
+}
+
+getLargestElement([5, 2, 8, 3]);
+
+// Given an array of numbers, “computeSumOfAllElements” returns the sum of all the elements in the given array.
+
+function computeSumOfAllElements(arr) {
+ 
+  if(arr.length === 0) {
+    return 0;
+  } else {
+  var sum = arr.reduce(function (total, currentNum) {
+    return total += currentNum;
+  });
+  }
+return sum;
+}
+
+computeSumOfAllElements([1, 2, 3])
+
+// Given the pre tax and pre tip amount of a meal, “calculateBillTotal” returns the total amount due after tax and tip.
+
+// Notes:
+// * Assume that sales tax is 9.5% and tip is 15%.
+// * Do NOT tip on the sales tax, only on the pre tip amount.
+
+function calculateBillTotal(preTaxAndTipAmount) {
+  var salesTax = 0.095;
+  var tip = 0.15;
+  
+  var taxAndTip = salesTax + tip;
+  var calculatedTaxAndTip = preTaxAndTipAmount * taxAndTip;
+  var total = calculatedTaxAndTip + preTaxAndTipAmount;
+  return total;
+}
+
+calculateBillTotal(20);
+
+
+
+
+
+
 
 
 
