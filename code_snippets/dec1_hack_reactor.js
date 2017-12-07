@@ -1526,6 +1526,176 @@ function convertScoreToGrade(score) {
 convertScoreToGrade(91);
 // A
 
+/*
+Write a function called "convertScoreToGradeWithPlusAndMinus".
+
+Given a score, "convertScoreToGradeWithPlusAndMinus" returns a string representing the letter grade corresponding to the given score.
+
+Notes:
+* (100 - 90) --> 'A'
+* (89  - 80) --> 'B'
+* (79  - 70) --> 'C'
+* (69  - 60) --> 'D'
+* (60  -  0) --> 'F'
+* If the given score is greater than 100 or less than 0, it should return 'INVALID SCORE'.
+* If the score is between the 0 and 2 (inclusive) of a given range, return the letter with a '-'
+* If the score is be the 8 and 9 (inclusive) of a given range, return the letter with a '+'
+* There are is no F+ and there is no F-.
+
+var output = convertScoreToGradeWithPlusAndMinus(91);
+console.log(output); // --> 'A-'
+*/
+
+function convertScoreToGradeWithPlusAndMinus(score) {
+  
+  if ( score > 100 || score < 0 ) {
+    return 'INVALID SCORE';
+  }
+  
+  if ( score >= 90 ) {
+    if ( score <= 92 ) {
+      return 'A-';
+    } else if ( score >= 98 ) {
+      return 'A+';
+    } else { 
+      return 'A';
+    }
+  } else if ( score >= 80 ) {
+      if ( score <= 82 ) {
+        return 'B-';
+      } else if ( score >= 88 ) {
+        return 'B+';
+      } else { 
+        return 'B';
+      }
+  } else if ( score >= 70 ) {
+      if ( score <= 72 ) {
+        return 'C-';
+      } else if ( score >= 78 ) {
+        return 'C+';
+      } else { 
+        return 'C';
+      }
+  } else if ( score >= 60 ) {
+      if ( score <= 62 ) {
+        return 'D-';
+      } else if ( score >= 68 ) {
+        return 'D+';
+      } else { 
+        return 'D';
+      }
+  } else {
+      return 'F';
+  }
+
+}
+
+convertScoreToGradeWithPlusAndMinus(91);
+// A+
+
+// Given a natural number (a whole number greater than 0), “computeFactorialOfN” returns its factorial.
+
+function computeFactorialOfN(n) {
+  var product = 1;
+  var end = n;
+  
+  for(var start = 1; start <= end; start++) {
+    product *= start;
+  }
+  return product;
+}
+
+computeFactorialOfN(4);
+
+// Given a string and a number, “repeatString” returns the given string repeated the given number of times.
+
+function repeatString(string, num) {
+  return string.repeat(num);
+}
+
+repeatString('code', 3);
+
+// Given 3 words, “getLongestOfThreeWords” returns the longest of three words.
+
+// Notes:
+// * If there is a tie, it should return the first word in the tie.
+
+function getLongestOfThreeWords(word1, word2, word3) {
+  newArray = [word1, word2, word3];
+  
+  return newArray.reduce(function(a, b) {
+    if(a.length > b.length) {
+      return a;
+    } else if(a.length === b.length) {
+      return a;
+      } else {
+      return b;
+    }
+  });
+}
+
+getLongestOfThreeWords('these', 'three', 'words');
+
+// Given 3 strings, “findShortestOfThreeWords” returns the shortest of the given strings.
+
+// Notes:
+// * If there are ties, it should return the first word in the parameters list.
+
+ function findShortestOfThreeWords(word1, word2, word3) {
+   newArray = [word1, word2, word3];
+   
+   return newArray.reduce(function(a, b) {
+     if(a.length < b.length) {
+       return a;
+     } else if(a.length === b.length) {
+       return a;
+     } else {
+       return b;
+     }
+   })
+ }
+ 
+ findShortestOfThreeWords('a', 'two', 'three');
+
+ // Given a principal, an interest rate, a compounding frequency, and a time (in years), “computeCompoundInterest” returns the amount of compound interest generated.
+
+function computeCompoundInterest(principal, interestRate, compoundingFrequency, timeInYears) {
+   var interest = 0;
+ 
+  interest = principal * Math.pow((1 + interestRate/compoundingFrequency), (compoundingFrequency*timeInYears)) - principal;
+  
+  return interest;
+}
+
+computeCompoundInterest(1500, .043, 4, 6);
+
+// Given 2 numbers, “modulo” returns the remainder after dividing num1 by num2.
+
+// It should behave as described in the canonical documentation (MDN) for the JavaScript remainder operator:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Remainder_()
+
+// Notes:
+// * Do NOT use the actual built-in modulo (aka “remainder”) operator (%) in your implementation.
+// * 0 % ANYNUMBER = 0.
+// * ANYNUMBER % 0 = NaN.
+// * If either operand is NaN, then the result is NaN.
+// * Modulo always returns the sign of the first number.
+
+function modulo(num1, num2) {
+  var quotient = parseInt(num1 / num2);
+  var product = quotient * num2;
+  return num1 - product;
+}
+
+modulo(25, 4);
+
+
+
+
+
+
+
+
 
 
 
