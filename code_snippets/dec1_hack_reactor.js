@@ -1833,6 +1833,40 @@ fromListToObject(array);
 //   spouse: 'Holly McLane' }
 
 
+// Write a function called “transformEmployeeData” that transforms some employee data from one format to another.
+
+var employedList = ([
+    [
+        ['firstName', 'Joe'], ['lastName', 'Blow'], ['age', 42], ['role', 'clerk']
+    ],
+    [
+        ['firstName', 'Mary'], ['lastName', 'Jenkins'], ['age', 36], ['role', 'manager']
+    ]
+]);
+
+function transformEmployeeData(employeeData) {
+var list = [];
+for(var i = 0; i < employeeData.length; i++) {
+  var obj = {};
+  for(var j = 0; j < employeeData[i].length; j++) {
+    obj[employeeData[i][j][0]] = employeeData[i][j][1];
+  }
+  list.push(obj);
+}
+return list;
+
+}
+
+console.log(transformEmployeeData(employedList));
+// [ { firstName: 'Joe', lastName: 'Blow', age: 42, role: 'clerk' },
+//   { firstName: 'Mary',
+//     lastName: 'Jenkins',
+//     age: 36,
+//     role: 'manager' } ]
+
+
+
+
 
 
 
