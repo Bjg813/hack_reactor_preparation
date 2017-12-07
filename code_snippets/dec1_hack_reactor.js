@@ -1865,6 +1865,145 @@ console.log(transformEmployeeData(employedList));
 //     role: 'manager' } ]
 
 
+// Write a function called “getAllKeys” which returns an array of all the input object’s keys.
+obj = {
+  name : 'Sam',
+  age : 25,
+  hasPets : true
+};
+
+function getAllKeys(obj) {
+  var keys = [];
+  for(var prop in obj) {
+    keys.push(prop);
+  }
+  return keys;
+}
+
+getAllKeys(obj);
+// [ 'name', 'age', 'hasPets' ]
+
+
+// Write a function called “listAllValues” which returns an array of all the input object’s values.
+
+var obj = {
+  name : 'Krysten',
+  age : 33,
+  hasPets : false
+};
+
+function listAllValues(obj) {
+  var keys = [];
+  for(var prop in obj) {
+    keys.push(obj[prop]);
+  }
+  return keys;
+}
+
+listAllValues(obj);
+// [ 'Krysten', 33, false ]
+
+
+// Write a function called “convertObjectToList” which converts an object literal into an array of arrays, like this:
+
+var obj = {
+  name: 'Holly',
+  age: 35,
+  role: 'producer'
+};
+
+function convertObjectToList(obj) {
+  var array = [];
+  for(var prop in obj) {
+    var array2 = [];
+    array2.push(prop);
+    array2.push(obj[prop]);
+    array.push(array2);
+  }
+  return array;
+}
+
+convertObjectToList(obj);
+// [ [ 'name', 'Holly' ], [ 'age', 35 ], [ 'role', 'producer' ] ]
+
+// Write a function called “greetCustomers”.
+
+// Given a name, “greetCustomers” returns a greeting based on how many times that customer has visited the restaurant. Please refer to the customerData object.
+
+// The greeting should be different, depending on the name on their reservation.
+
+// Notes:
+// * Your function should not alter the customerData object to update the number of visits.
+// * Do not hardcode to the exact sample data. This is a BAD IDEA:
+
+var customerData = {
+  'Joe': {
+    visits: 1
+  },
+  'Carol': {
+    visits: 2
+  },
+  'Howard': {
+    visits: 3,
+  },
+  'Carrie': {
+    visits: 4
+  }
+};
+
+function greetCustomer(firstName) {
+  var greeting = '';
+  if(!customerData[firstName]) {
+    greeting = 'Welcome! Is this your first time?';
+  } else if(customerData[firstName].visits === 1) {
+    greeting = "Welcome back, " + firstName + "! We're glad you liked us the first time!";
+  } else if(customerData[firstName].visits >= 2) {
+    greeting = "Welcome back, " + firstName + "! So glad to see you again!";
+  }
+  return greeting;
+}
+
+greetCustomer('Joe')
+// 'Welcome back, Joe! We\'re glad you liked us the first time!'
+
+// What is the final value of x?
+
+var x = 7;
+var y = 8;
+var z = 9;
+
+function juggle(x, y, z) {
+x = y + z;
+z = x;
+x = y;
+z = x + y;
+y = z - x;
+z = y;
+x = y * z;
+z = y / z;
+x = (z - x) / (y + z);
+return x;
+}
+
+juggle(x, y, z);
+// -7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
