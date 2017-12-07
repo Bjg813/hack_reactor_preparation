@@ -1688,6 +1688,150 @@ function modulo(num1, num2) {
 }
 
 modulo(25, 4);
+// 1
+
+// Given 2 numbers, “multiply” returns their product.
+
+// Notes:
+// * It should not use the multiply operator (*).
+
+function multiply(num1, num2) {
+  var sum = 0;
+  for (var i = 0; i < Math.abs(num2); i++) {
+    sum += num1;
+  }
+
+  if (num1 < 0 && num2 < 0) {
+    return Math.abs(sum);
+  } else if (num1 < 0 || num2 < 0 ) {
+    return -sum;
+  } else {
+    return sum;
+  }
+}
+
+multiply(4, 7);
+// 28
+
+// Given a number, “isOddWithoutModulo” returns whether the passed in number is odd.
+
+// Note:
+// * It does so without using the modulo operator (%). 
+// * It should work for negative numbers and zero.
+
+function isOddWithoutModulo(num) {
+  var quotient = parseInt(num / 2);
+  var product = quotient * 2;
+  if(num - product === 0) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+isOddWithoutModulo(17);
+// true
+
+// Given a number, “isEvenWithoutModulo” returns whether it is even.
+
+// Notes:
+// * It does so without using the modulo operator (%). 
+// * It should work for negative numbers and zero.
+
+function isEvenWithoutModulo(num) {
+  var quotient = parseInt(num / 2);
+  var product = quotient * 2;
+  if(product - num === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+isEvenWithoutModulo(8);
+// true
+
+// Write a function called “multiplyBetween”.
+
+// Given 2 integers, “multiplyBetween” returns the product between the two given integers, beginning at num1, and excluding num2.
+
+// Notes:
+// * The product between 1 and 4 is 1 * 2 * 3 = 6.
+// * If num2 is not greater than num1, it should return 0.
+
+ function multiplyBetween(num1, num2) {
+   var multiply = 1;
+   if(num1 >= num2) {
+     return 0;
+   } 
+   for(var i = num1; i < num2; i++) {
+     multiply *= i;
+   }
+   return multiply;
+ }
+ 
+ multiplyBetween(2, 5); 
+ // 24
+
+ // Write a function called “computeSumBetween”.
+
+// Given 2 integers, “computeSumBetween” returns the sum between the two given integers, beinning at num1, and excluding num2.
+
+// Notes:
+// * The sum between 1 and 4 is 1 + 2 + 3 = 6.
+// * If num2 is not greater than num1, it should return 0.
+
+function computeSumBetween(num1, num2) {
+  var sum = 0;
+  if(num1 >= num2) {
+    return 0;
+  }
+  for(var i = num1; i < num2; i++) {
+    sum += i;
+  }
+  return sum;
+}
+
+computeSumBetween(2, 5);
+// 9
+
+// Write a function ‘transformFirstAndLast’ that takes in an array, and returns an object with:
+// 1) the first element of the array as the object’s key, and
+// 2) the last element of the array as that key’s value.
+
+var array1 = ['Queen', 'Elizabeth', 'Of Hearts', 'Beyonce'];
+var array2 = ['Kevin', 'Bacon', 'Love', 'Spacey', 'Costner', 'Hart'];
+
+function transformFirstAndLast(array) {
+  var result = {};
+  result[array[0]] = array[array.length - 1];
+  return result;
+}
+
+console.log(transformFirstAndLast(array1)); 
+console.log(transformFirstAndLast(array2));
+// { Queen: 'Beyonce' }
+// { Kevin: 'Hart' }
+
+// Write a function ‘fromListToObject’ which takes in an array of arrays, and returns an object with each pair of elements in the array as a key-value pair.
+
+var array = [['firstName', 'John'], ['lastName', 'McLane'], ['occupation', 'law enforcement'], ['spouse', 'Holly McLane']];
+
+function fromListToObject(array) {
+  var object = {};
+  for(var i = 0; i < array.length; i++) {
+    var newArray = array[i];
+    object[newArray[0]] = newArray[1];
+  }
+  return object;
+}
+  
+fromListToObject(array);
+// { firstName: 'John',
+//   lastName: 'McLane',
+//   occupation: 'law enforcement',
+//   spouse: 'Holly McLane' }
+
 
 
 
