@@ -1,0 +1,38 @@
+pwd = print working directory
+
+ls = list 
+
+cd = change directory
+
+cd .. = go up one level
+
+fork and then clone the http address
+
+git clone = clones the repository i.e. <http://github.com/mkdai//ssp13=-testbuilder.git>
+
+git log = show you all the previous commits
+
+git diff = git difference/shows changes
+
+git remote -v = show the origin
+
+git remote add (name i.e. upsstream) (url i.e. http://github.com/hackreactor/ssp13-tesbuilder.git)
+
+git push origin master = origin is the remote pushing up to and the master is the current branch
+
+//only push to your own forked repository never push to the master or it can break things
+
+//to check out an older version
+git log = show previous commits
+can see the head and copy old commit(hash)
+git checkout = checks out the commit hash
+
+
+head = where your local copy is pointed at (placeholder)(shows where you are at in the files)
+//usually pointed at master or some branch
+
+can give branches alias names
+
+
+
+
