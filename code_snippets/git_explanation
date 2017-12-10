@@ -1,3 +1,6 @@
+//commit as often as is reasonable
+//everytime you commit something it shouldnt be broken code
+
 pwd = print working directory
 
 ls = list 
