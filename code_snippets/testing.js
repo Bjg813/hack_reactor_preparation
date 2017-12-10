@@ -25,16 +25,16 @@ Write an “assertArraysEqual” function from scratch.
 // Do not use JSON.stringify(), Array.join(), or any other “convert the array to a string so I can compare two strings” type of technique to implement this.
 
 function assertArraysEqual(actual, expected, testName) {
-  // your code here
-  var areEqualValues = actual.every(function(item, i) {
-    return item === expected[i];
-  });
-  var areEqualLength = (actual.length === expected.length);
-
-  if (areEqualLength && areEqualValues) {
-    console.log('passed');
-  } else {
-    console.log('FAILED [' + testName + '] Expected "' + expected + '", but got "' + actual + '"');
+  var count = 0;
+  for ( i = 0; i <= expected.length; i++ ) {
+    if ( actual[i] !== expected[i] ) {
+      count++;
+    }
+  }
+  if ( count === 0 ) {
+    console.log('passed');  
+  } else if ( count > 0 || expected.length !== actual.length ) {
+    console.log('FAILED ' + '[' + testName + ']' + ' Expected ' + '"' + expected + '",' + ' but got ' + '"' + actual + '"');
   }
 }
 
@@ -76,6 +76,6 @@ function assertWithinRange(low, high, actual, testName) {
 
      assertWithinRange(5, 10, 20, 'my test');
      // FAIL [my test] "20" not within range 5 to 10
-     
+
 
 
