@@ -11,7 +11,7 @@ function assertEqual(actual, expected, testName) {
   if(actual === expected) {
     console.log('test passed');
   } else {
-    console.log('FAILED ' + testName + 'Expected ' + expected + ', but got ' + actual);
+    console.log('FAILED [' + testName + '] Expected "' + expected + '", but got "' + actual + '"');
   }
 }
 
@@ -55,5 +55,27 @@ function assertObjectsEqual(actual, expected, testName) {
     console.log('FAILED [' + testName + '] Expected ' + expected + ', but got ' + actual);
   }
 }
+
+// Write an “assertWithinRange” function from scratch.
+
+// The idea here is similar to when someone says, “Give me a number between 1 and 5”. 
+// You usually think the possible answers are “1, 2, 3, 4, or 5”. I.e., you usually don’t interpret the options as being “2, 3, or 4”.
+
+// Notes:
+// * Assume that the “actual” and “expected” arguments are always numbers (e.g., not booleans or other types that don’t make sense in the context of examining a “range”.)
+
+function assertWithinRange(low, high, actual, testName) {
+  // your code here
+  if((actual >= low) && (actual <= high)) {
+    console.log('passed');
+  } else {
+        console.log('FAIL [' + testName + '] "' + actual + '" not within range ' + low + ' to ' + high);
+  }
+}
+
+
+     assertWithinRange(5, 10, 20, 'my test');
+     // FAIL [my test] "20" not within range 5 to 10
+     
 
 
