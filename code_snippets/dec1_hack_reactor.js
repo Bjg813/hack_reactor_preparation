@@ -825,6 +825,7 @@ function filterOddLengthWords(words) {
 }
 
 filterOddLengthWords(['there', 'it', 'is', 'now']);
+// [ 'there', 'now']
 
 // Given an object and a key, “getSquaredElementsAtProperty” returns an array containing all the squared elements of the array located at the given key.
 
