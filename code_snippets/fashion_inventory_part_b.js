@@ -63,7 +63,7 @@ function renderAverageCost(inventory) {
     return inventory.map(getAverageCostOfShoesForDesigner);
 }
 
-var expected = { 'designers': [ { 'name': 'Brunello Cucinelli', 'averagePrice': 1250 }, { 'name': 'Gucci', 'averagePrice': 900 } ] };
+var expected = { 'designers': [ { 'name': 'Brunello Cucinelli', 'averagePrice': 1025 }, { 'name': 'Gucci', 'averagePrice': 850} ] };
 
 assertObjectEquals(renderAverageCost(currentInventory), expected, 'should render an object with a property called desiners which contains the names of different designers as well as the average price of all their shoes');
 
