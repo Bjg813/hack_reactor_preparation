@@ -24,7 +24,7 @@ var currentInventory = [{
     }]
 }];
 
-   
+
 // calculate the sum of all the arrays - x
 // calculate the average - x
 // gets shoe prices - x
@@ -37,13 +37,13 @@ function getSum(values) {
     }, 0);
 }
 
-assertEqual(getSum([1, 2, 3]), 6, 'Sum of Numbers in Array test');
+assertEqual(getSum([1, 2, 3]), 6, 'Sum of Numbers in Array test'); // test getSum function
 
 function average(numbers) {
   return getSum(numbers) / numbers.length;
 }
 
-assertEqual(average([1, 2, 3]), 2, 'Average Numbers in Array test');
+assertEqual(average([1, 2, 3]), 2, 'Average Numbers in Array test'); // test average function
 
 function getShoePrices(goodsForDesigner) {
     return goodsForDesigner.shoes.map(function(shoe) {
@@ -51,21 +51,29 @@ function getShoePrices(goodsForDesigner) {
     });
 }
 
+// creates an instance of user-defined object type 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+function Designers(name, averagePrice) {
+    this.name = name;
+    this.averagePrice = averagePrice;
+}
+
 function getAverageCostOfShoesForDesigner(goodsForDesigner) {
-    return {
-        name: goodsForDesigner.name,
-        averagePrice: average(getShoePrices(goodsForDesigner))
-    };
+  var designers1 = new Designers(goodsForDesigner.name, average(getShoePrices(goodsForDesigner)));
+  return designers1;
 }
 
 
-function renderAverageCost(inventory) {
-    return inventory.map(getAverageCostOfShoesForDesigner);
+function calculateAveragePricePerDesigner(inventory) {
+    obj = {};
+    var averageCostOfShoesForDesigner =  inventory.map(getAverageCostOfShoesForDesigner);
+    obj.designers = averageCostOfShoesForDesigner;
+    return obj;
 }
 
 var expected = { 'designers': [ { 'name': 'Brunello Cucinelli', 'averagePrice': 1025 }, { 'name': 'Gucci', 'averagePrice': 850} ] };
 
-assertObjectEquals(renderAverageCost(currentInventory), expected, 'should render an object with a property called desiners which contains the names of different designers as well as the average price of all their shoes');
+assertObjectEquals(calculateAveragePricePerDesigner(currentInventory), expected, 'Should render an object called designers with their names and averagePrice of their shoes');
 
 
 function assertObjectEquals(actual, expected, testName) {
