@@ -17,7 +17,7 @@ function flipPairs (string) {
     var flippedString = '';
     
     for(var i = 0; i < string.length; i++) {
-      flippedString += splitString.splice(0, 2).reverse().join('');
+      flippedString += splitString.splice(0, 4).reverse().join('');
     }
     return flippedString;
   }
