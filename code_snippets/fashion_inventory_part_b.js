@@ -51,7 +51,7 @@ function getShoePrices(goodsForDesigner) {
     });
 }
 
-// creates an instance of user-defined object type 
+// creates an instance of Designers 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 function Designers(name, averagePrice) {
     this.name = name;
