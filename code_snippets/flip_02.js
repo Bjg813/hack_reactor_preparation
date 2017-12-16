@@ -1,13 +1,13 @@
 var input = 'a short example';
 
 function flipString(string, n) {
-    // split the string
-      // save the string in variable
-    // make an empty string variable
-    // iterate through the string
-      // slice the string by 5 characters 
-      // reverse the string
-      // join the string
+    // split the string - x
+      // save the string in variable - x
+    // make an empty string variable - x
+    // iterate through the string - x
+      // slice the string by 5 characters - x 
+      // reverse the string - x
+      // join the string - x
   var splitString = string.split('');
   var flippedString = '';
   for(var i = 0; i < string.length; i++) {
