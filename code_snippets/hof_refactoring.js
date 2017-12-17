@@ -32,10 +32,26 @@ function getElementsLessThan100AtProperty(obj, key) {
     return obj[key].filter((a) => a < 100);
 }
 
+// Write a function called “getElementsGreaterThan10AtProperty”.
+
+// Given an object and a key, “getElementsGreaterThan10AtProperty” returns an array containing the elements within the array, located at the given key, that are greater than 10.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If the array contains no elements greater than 10, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+function getElementsGreaterThan10AtProperty(obj, key) {
+    if(!obj[key] || !Array.isArray(obj[key]) || obj[key].length === 0) return [];
+    return obj[key].filter((property) => property > 10);
+}
+
 /////////////// Testing ///////////////////////////////////////////////////////////////////////////////
 
-assertArraysEqual(getElementsThatEqual10AtProperty(obj, 'key'), [10, 10], 'test');
+assertArraysEqual(getElementsThatEqual10AtProperty(obj, 'key'), [10, 10], 'Test for numbers equal to 10');
 assertArraysEqual(getElementsLessThan100AtProperty(obj, 'key'), [10, 50, 10], 'Test for numbers less than 100');
+assertArraysEqual(getElementsGreaterThan10AtProperty(obj, 'key'), [1000, 50], 'Test for property greater than 10')
 
 
 function assertArraysEqual(actual, expected, testName) {
