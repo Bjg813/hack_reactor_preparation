@@ -47,11 +47,38 @@ function getElementsGreaterThan10AtProperty(obj, key) {
     return obj[key].filter((property) => property > 10);
 }
 
+// Write a function called “removeElement”.
+
+// Given an array of elements, and a “discarder” parameter, “removeElement” returns an array containing the items in the given array that do not match the “discarder” parameter.
+
+// Notes:
+// * If all the elements match, it should return an empty array.
+// * If an empty array is passed in, it should return an empty array.
+
+var array = [1, 2, 3, 2, 1]
+
+function removeElement(array, discarder) {
+   return array.filter((element) => element !== discarder);
+}
+
+
+// Write a function called “keep”.
+
+// Given an array and a keeper element, “keep” returns an array containing the items that match the given keeper element.
+
+// Notes:
+// * If no elements match, “keep” should return an empty array.
+
+function keep(array, keeper) {
+    return array.filter((element) => element === keeper);
+}
 /////////////// Testing ///////////////////////////////////////////////////////////////////////////////
 
 assertArraysEqual(getElementsThatEqual10AtProperty(obj, 'key'), [10, 10], 'Test for numbers equal to 10');
 assertArraysEqual(getElementsLessThan100AtProperty(obj, 'key'), [10, 50, 10], 'Test for numbers less than 100');
-assertArraysEqual(getElementsGreaterThan10AtProperty(obj, 'key'), [1000, 50], 'Test for property greater than 10')
+assertArraysEqual(getElementsGreaterThan10AtProperty(obj, 'key'), [1000, 50], 'Test for property greater than 10');
+assertArraysEqual(removeElement(array, 2), [1, 3, 1], 'Test returns an array containing items that arent discarder'); 
+assertArraysEqual(keep(array, 2), [2, 2], 'Test returns an array containing items that are kept in the keeper');
 
 
 function assertArraysEqual(actual, expected, testName) {
