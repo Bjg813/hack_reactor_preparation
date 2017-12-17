@@ -112,6 +112,32 @@ function computeAverageOfNumbers(num) {
     return getSum(num) / num.length;
 }
 
+// Write a function called “getAverageOfElementsAtProperty”.
+
+// Given an object and a key, “getAverageOfElementsAtProperty” returns the average of all the elements in the array located at the given key.
+
+// Notes:
+// * If the array at the given key is empty, it should return 0.
+// * If the property at the given key is not an array, it should return 0.
+// * If there is no property at the given key, it should return 0.
+
+function getAverageOfElementsAtProperty(obj, key) {
+    if(!obj[key] || !Array.isArray(obj[key]) || obj[key].length === 0) return 0;
+    return getSum(obj[key]) / obj[key].length;
+}
+
+// Write a function called “getEvenLengthWordsAtProperty”.
+
+// Given an object and a key, “getEvenLengthWordsAtProperty” returns an array containing all the even length word elements of the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If it contains no even length elements, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+
+
 /////////////// Testing ///////////////////////////////////////////////////////////////////////////////
 
 assertArraysEqual(getElementsThatEqual10AtProperty(obj, 'key'), [10, 10], 'Test for numbers equal to 10');
@@ -121,7 +147,7 @@ assertArraysEqual(removeElement(array, 2), [1, 3, 1], 'Test returns an array con
 assertArraysEqual(keep(array, 2), [2, 2], 'Test returns an array containing items that are kept in the keeper');
 assertArraysEqual(getOddLengthWordsAtProperty(wordsyWords, 'key'), ['has', 'words'], 'Test returns an array containing odd number length words');
 assertArraysEqual(computeAverageOfNumbers(array), 1.8, 'Test averager');
-
+assertArraysEqual(getAverageOfElementsAtProperty(obj, 'key'), 267.5, 'Test for average of all elements in the array');
 
 function assertArraysEqual(actual, expected, testName) {
     var count = 0;
