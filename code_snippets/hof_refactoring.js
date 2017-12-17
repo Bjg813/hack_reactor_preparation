@@ -72,6 +72,26 @@ function removeElement(array, discarder) {
 function keep(array, keeper) {
     return array.filter((element) => element === keeper);
 }
+
+// Write a function called “getOddLengthWordsAtProperty”.
+
+// Given an object and a key, “getOddLengthWordsAtProperty” returns an array containing all the odd length word elements of the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If it contains no odd length elements, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the given key, it should return an empty array.
+
+var wordsyWords = {
+    key: ['It', 'has', 'some', 'words']
+}
+
+function getOddLengthWordsAtProperty(obj, key) {
+    if(!obj[key] || !Array.isArray(obj[key]) || obj[key].length === 0) return [];
+    return obj[key].filter((property) => property.length % 2 !== 0);
+}
+
 /////////////// Testing ///////////////////////////////////////////////////////////////////////////////
 
 assertArraysEqual(getElementsThatEqual10AtProperty(obj, 'key'), [10, 10], 'Test for numbers equal to 10');
@@ -79,6 +99,7 @@ assertArraysEqual(getElementsLessThan100AtProperty(obj, 'key'), [10, 50, 10], 'T
 assertArraysEqual(getElementsGreaterThan10AtProperty(obj, 'key'), [1000, 50], 'Test for property greater than 10');
 assertArraysEqual(removeElement(array, 2), [1, 3, 1], 'Test returns an array containing items that arent discarder'); 
 assertArraysEqual(keep(array, 2), [2, 2], 'Test returns an array containing items that are kept in the keeper');
+assertArraysEqual(getOddLengthWordsAtProperty(wordsyWords, 'key'), ['has', 'words'], 'Test returns an array containing odd number length words');
 
 
 function assertArraysEqual(actual, expected, testName) {
