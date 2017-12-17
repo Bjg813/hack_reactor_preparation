@@ -1,3 +1,15 @@
+
+var array = [1, 2, 3, 2, 1];
+
+
+var obj = {
+    key: [1000, 10, 50, 10]
+  };
+
+  var wordsyWords = {
+    key: ['It', 'has', 'some', 'words']
+}
+
 // Write a function called “getElementsThatEqual10AtProperty”.
 
 // Given an object and a key, “getElementsThatEqual10AtProperty” returns an array containing all the elements of the array located at the given key that are equal to ten.
@@ -7,10 +19,6 @@
 // * If the array contains no elements that are equal to 10, it should return an empty array.
 // * If the property at the given key is not an array, it should return an empty array.
 // * If there is no property at the key, it should return an empty array.
-
-var obj = {
-    key: [1000, 10, 50, 10]
-  };
 
 function getElementsThatEqual10AtProperty(obj, key) {
     if(!obj[key] || !Array.isArray(obj[key])) return [];
@@ -55,8 +63,6 @@ function getElementsGreaterThan10AtProperty(obj, key) {
 // * If all the elements match, it should return an empty array.
 // * If an empty array is passed in, it should return an empty array.
 
-var array = [1, 2, 3, 2, 1]
-
 function removeElement(array, discarder) {
    return array.filter((element) => element !== discarder);
 }
@@ -83,9 +89,6 @@ function keep(array, keeper) {
 // * If the property at the given key is not an array, it should return an empty array.
 // * If there is no property at the given key, it should return an empty array.
 
-var wordsyWords = {
-    key: ['It', 'has', 'some', 'words']
-}
 
 function getOddLengthWordsAtProperty(obj, key) {
     if(!obj[key] || !Array.isArray(obj[key]) || obj[key].length === 0) return [];
@@ -105,7 +108,6 @@ function getSum(values) {
     }, 0);
 }
 
-assertArraysEqual(getSum(array), 9, 'Test sum');
 
 
 function computeAverageOfNumbers(num) {
@@ -141,6 +143,24 @@ function getEvenLengthWordsAtProperty(obj, key) {
     return obj[key].filter((property) => property.length % 2 === 0);
 }
 
+// Write a function called “getSquaredElementsAtProperty”.
+
+// Given an object and a key, “getSquaredElementsAtProperty” returns an array containing all the squared elements of the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+function computeSquared(nums) {
+    let numsSquared = nums.map(x => x * x);
+    return numsSquared;
+} 
+
+function getSquaredElementsAtProperty(obj, key) {
+    if(!Array.isArray(obj[key])) return [];
+    return computeSquared(obj[key]);
+}
 
 
 /////////////// Testing ///////////////////////////////////////////////////////////////////////////////
@@ -151,9 +171,12 @@ assertArraysEqual(getElementsGreaterThan10AtProperty(obj, 'key'), [1000, 50], 'T
 assertArraysEqual(removeElement(array, 2), [1, 3, 1], 'Test returns an array containing items that arent discarder'); 
 assertArraysEqual(keep(array, 2), [2, 2], 'Test returns an array containing items that are kept in the keeper');
 assertArraysEqual(getOddLengthWordsAtProperty(wordsyWords, 'key'), ['has', 'words'], 'Test returns an array containing odd number length words');
+assertArraysEqual(getSum(array), 9, 'Test sum');
 assertArraysEqual(computeAverageOfNumbers(array), 1.8, 'Test averager');
 assertArraysEqual(getAverageOfElementsAtProperty(obj, 'key'), 267.5, 'Test for average of all elements in the array');
 assertArraysEqual(getEvenLengthWordsAtProperty(wordsyWords, 'key'), ['It', 'some'], 'Test returns an array containing even number length words');
+assertArraysEqual(computeSquared(array), [1,4,9,4,1], 'Test square and return numbers in an array');
+assertArraysEqual(getSquaredElementsAtProperty(obj, 'key'), [1000000,100,2500,100], 'Test square and return numbers in an array');
 
 function assertArraysEqual(actual, expected, testName) {
     var count = 0;
