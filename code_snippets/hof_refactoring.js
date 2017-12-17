@@ -3,7 +3,7 @@ var array = [1, 2, 3, 2, 1];
 
 
 var obj = {
-    key: [1000, 10, 50, 10]
+    key: [1000, 10, 50, 1, 10]
   };
 
   var wordsyWords = {
@@ -162,6 +162,21 @@ function getSquaredElementsAtProperty(obj, key) {
     return computeSquared(obj[key]);
 }
 
+// Write a function called “getOddElementsAtProperty”.
+
+// Given an object and a key, “getOddElementsAtProperty” returns an array containing all the odd elements of the array located at the given key.
+
+// Notes:
+// * If the array is empty, it should return an empty array.
+// * If it contains no odd elements, it should return an empty array.
+// * If the property at the given key is not an array, it should return an empty array.
+// * If there is no property at the key, it should return an empty array.
+
+function getOddElementsAtProperty(obj, key) {
+    if(!Array.isArray(obj[key])) return [];
+    return obj[key].filter((property) => property % 2 !== 0);
+}
+
 
 /////////////// Testing ///////////////////////////////////////////////////////////////////////////////
 
@@ -176,7 +191,8 @@ assertArraysEqual(computeAverageOfNumbers(array), 1.8, 'Test averager');
 assertArraysEqual(getAverageOfElementsAtProperty(obj, 'key'), 267.5, 'Test for average of all elements in the array');
 assertArraysEqual(getEvenLengthWordsAtProperty(wordsyWords, 'key'), ['It', 'some'], 'Test returns an array containing even number length words');
 assertArraysEqual(computeSquared(array), [1,4,9,4,1], 'Test square and return numbers in an array');
-assertArraysEqual(getSquaredElementsAtProperty(obj, 'key'), [1000000,100,2500,100], 'Test square and return numbers in an array');
+assertArraysEqual(getSquaredElementsAtProperty(obj, 'key'), [1000000,100,2500,1,100], 'Test square and return numbers in an array');
+assertArraysEqual(getOddElementsAtProperty(obj, 'key'), [1], 'Test find odd elements in array');
 
 function assertArraysEqual(actual, expected, testName) {
     var count = 0;
