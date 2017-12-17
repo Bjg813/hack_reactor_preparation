@@ -92,6 +92,26 @@ function getOddLengthWordsAtProperty(obj, key) {
     return obj[key].filter((property) => property.length % 2 !== 0);
 }
 
+// Write a function called “computeAverageOfNumbers”.
+
+// Given an array of numbers, “computeAverageOfNumbers” returns their average.
+
+// Notes:
+// * If given an empty array, it should return 0.
+
+function getSum(values) {
+    return values.reduce(function(sum, curr) {
+        return sum + curr;
+    }, 0);
+}
+
+assertArraysEqual(getSum(array), 9, 'Test sum');
+
+
+function computeAverageOfNumbers(num) {
+    return getSum(num) / num.length;
+}
+
 /////////////// Testing ///////////////////////////////////////////////////////////////////////////////
 
 assertArraysEqual(getElementsThatEqual10AtProperty(obj, 'key'), [10, 10], 'Test for numbers equal to 10');
@@ -100,6 +120,7 @@ assertArraysEqual(getElementsGreaterThan10AtProperty(obj, 'key'), [1000, 50], 'T
 assertArraysEqual(removeElement(array, 2), [1, 3, 1], 'Test returns an array containing items that arent discarder'); 
 assertArraysEqual(keep(array, 2), [2, 2], 'Test returns an array containing items that are kept in the keeper');
 assertArraysEqual(getOddLengthWordsAtProperty(wordsyWords, 'key'), ['has', 'words'], 'Test returns an array containing odd number length words');
+assertArraysEqual(computeAverageOfNumbers(array), 1.8, 'Test averager');
 
 
 function assertArraysEqual(actual, expected, testName) {
