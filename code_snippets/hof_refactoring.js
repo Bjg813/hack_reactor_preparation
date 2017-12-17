@@ -136,6 +136,11 @@ function getAverageOfElementsAtProperty(obj, key) {
 // * If the property at the given key is not an array, it should return an empty array.
 // * If there is no property at the key, it should return an empty array.
 
+function getEvenLengthWordsAtProperty(obj, key) {
+    if(!obj[key] || !Array.isArray(obj[key]) || obj[key].length === 0) return [];
+    return obj[key].filter((property) => property.length % 2 === 0);
+}
+
 
 
 /////////////// Testing ///////////////////////////////////////////////////////////////////////////////
@@ -148,6 +153,7 @@ assertArraysEqual(keep(array, 2), [2, 2], 'Test returns an array containing item
 assertArraysEqual(getOddLengthWordsAtProperty(wordsyWords, 'key'), ['has', 'words'], 'Test returns an array containing odd number length words');
 assertArraysEqual(computeAverageOfNumbers(array), 1.8, 'Test averager');
 assertArraysEqual(getAverageOfElementsAtProperty(obj, 'key'), 267.5, 'Test for average of all elements in the array');
+assertArraysEqual(getEvenLengthWordsAtProperty(wordsyWords, 'key'), ['It', 'some'], 'Test returns an array containing even number length words');
 
 function assertArraysEqual(actual, expected, testName) {
     var count = 0;
