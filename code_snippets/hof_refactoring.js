@@ -177,11 +177,13 @@ function getOddElementsAtProperty(obj, key) {
     return obj[key].filter((property) => property % 2 !== 0);
 }
 
+//// Testing for December 18th has started! //////////
+
 
 /////////////// Testing ///////////////////////////////////////////////////////////////////////////////
 
 assertArraysEqual(getElementsThatEqual10AtProperty(obj, 'key'), [10, 10], 'Test for numbers equal to 10');
-assertArraysEqual(getElementsLessThan100AtProperty(obj, 'key'), [10, 50, 10], 'Test for numbers less than 100');
+assertArraysEqual(getElementsLessThan100AtProperty(obj, 'key'), [10, 50, 1, 10], 'Test for numbers less than 100');
 assertArraysEqual(getElementsGreaterThan10AtProperty(obj, 'key'), [1000, 50], 'Test for property greater than 10');
 assertArraysEqual(removeElement(array, 2), [1, 3, 1], 'Test returns an array containing items that arent discarder'); 
 assertArraysEqual(keep(array, 2), [2, 2], 'Test returns an array containing items that are kept in the keeper');
