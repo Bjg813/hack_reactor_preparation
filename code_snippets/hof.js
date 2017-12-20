@@ -34,3 +34,5 @@ return 0;
 }
 
 cubeOdd([1,2,3,4]);
+
+// These are all of the High Order Functions you need to know by the end of this week
